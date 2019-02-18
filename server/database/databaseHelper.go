@@ -16,11 +16,12 @@ user
 password
 database name
 */
-func GetDatabaseLoginFromFile() []string {
-	_, currFile, _, _ := runtime.Caller(0)
-	basepath := filepath.Dir(currFile)
-	// b, err := ioutil.ReadFile("%s/databaseLoginRemote.txt", basepath)
-	filepath := fmt.Sprintf("%s/databaseLoginLocal.txt", basepath)
+func GetDatabaseLoginFromFile(dirPath string, fileName string) []string {
+	if dirPath == "" {
+		_, currFile, _, _ := runtime.Caller(0)
+		dirPath = filepath.Dir(currFile)
+	}
+	filepath := fmt.Sprintf("%s/%s", dirPath, fileName)
 	b, err := ioutil.ReadFile(filepath)
 
 	if err != nil {

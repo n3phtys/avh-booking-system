@@ -14,7 +14,7 @@ var db *sql.DB
 
 // ConnectDatabase connects to the database and prints the version
 func ConnectDatabase() {
-	dbLogin := GetDatabaseLoginFromFile()
+	dbLogin := GetDatabaseLoginFromFile("", "databaseLoginLocal.txt")
 	loginInfo := fmt.Sprintf("%s:%s@/%s", dbLogin[0], dbLogin[1], dbLogin[2])
 	var err error
 	db, err = sql.Open("mysql", loginInfo)
