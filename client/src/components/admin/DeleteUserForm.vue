@@ -75,5 +75,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../../assets/modal.css";
+@import "../../assets/modal_small.css";
 </style>
